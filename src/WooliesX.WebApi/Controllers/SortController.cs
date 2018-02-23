@@ -7,6 +7,7 @@ using WooliesX.Services;
 
 namespace WooliesX.WebApi.Controllers
 {
+    [Route("api/[controller]")]
     public class SortController : Controller
     {
         private readonly AppSettings _appSettings;

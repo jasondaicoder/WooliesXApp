@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using WooliesX.Contracts;
+using WooliesX.Services;
 
 namespace WooliesX.WebApi
 {
@@ -27,7 +28,11 @@ namespace WooliesX.WebApi
         {
             services.AddMvc();
 
-            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            AppSettings appSettings = new AppSettings();
+            Configuration.GetSection("AppSettings").Bind(appSettings);
+            services.AddSingleton(appSettings);
+
+            services.AddWooliesXServices();
 
             services.AddSwaggerGen(c =>
             {
