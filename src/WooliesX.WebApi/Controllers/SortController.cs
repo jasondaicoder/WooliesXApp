@@ -19,13 +19,13 @@ namespace WooliesX.WebApi.Controllers
             _appSettings = appSettingsAccessor.Value;
         }
 
-        public async Task<IActionResult> Get(string sortOptions)
+        public async Task<IActionResult> Get(string sortOption)
         {
-            if (string.IsNullOrEmpty(sortOptions))
+            if (string.IsNullOrEmpty(sortOption))
                 return new BadRequestObjectResult("Sort options is not provided");
 
             SortOptions options;
-            if (!SortOptions.TryParse(sortOptions, out options))
+            if (!SortOptions.TryParse(sortOption, out options))
                 return new BadRequestObjectResult($"Invalid sort options");
 
             var productList = await _productService.GetSortedProductsAsync(options);
