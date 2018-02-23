@@ -17,7 +17,7 @@ namespace WooliesX.WebApi.Controllers
         public IActionResult Get()
         {
             return Ok(new {
-                Name = "Jason",
+                Name = "Jason Dai",
                 Token = _appSettings.Token
             });
         }
