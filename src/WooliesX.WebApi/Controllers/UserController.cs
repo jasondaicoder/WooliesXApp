@@ -7,18 +7,18 @@ namespace WooliesX.WebApi.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-        private readonly AppSettings appSettings;
+        private readonly AppSettings _appSettings;
 
-        public UserController(IOptions<AppSettings> appSettingsAccessor)
+        public UserController(AppSettings appSettings)
         {
-            appSettings = appSettingsAccessor.Value;
+            _appSettings = appSettings;
         }
 
         public IActionResult Get()
         {
             return Ok(new {
                 Name = "Jason",
-                Token = appSettings.Token
+                Token = _appSettings.Token
             });
         }
     }
