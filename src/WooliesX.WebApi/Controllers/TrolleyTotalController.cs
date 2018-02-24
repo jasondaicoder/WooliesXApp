@@ -7,10 +7,10 @@ using WooliesX.WebApi.Models;
 namespace WooliesX.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class TrolleyCalculatorController : Controller
+    public class TrolleyTotalController : Controller
     {
         private readonly ITrolleyService _trolleyService;
-        public TrolleyCalculatorController(ITrolleyService trolleyService)
+        public TrolleyTotalController(ITrolleyService trolleyService)
         {
             _trolleyService = trolleyService;
         }
