@@ -1,6 +1,6 @@
 # Overview
 
-This repository contains the exercises for WooliesX.
+This repository contains the exercises for WooliesX. The solution requires .net core 2.0.
 
 ## WooliesX.Contracts
 Contains all data contracts for service and web api
