@@ -15,4 +15,4 @@ Contains all web api controllers
 https://wooliexapp.azurewebsites.net/
 
 # Swagger
-https://wooliexapp.azurewebsites.net/swaggger
+https://wooliexapp.azurewebsites.net/swagger/
