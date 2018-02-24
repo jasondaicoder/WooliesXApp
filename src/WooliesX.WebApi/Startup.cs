@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -8,9 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.PlatformAbstractions;
 using Swashbuckle.AspNetCore.Swagger;
 using WooliesX.Contracts;
 using WooliesX.Services;
+using WooliesX.WebApi.Middlewares;
 
 namespace WooliesX.WebApi
 {
@@ -37,18 +40,21 @@ namespace WooliesX.WebApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "WooliesX Exercise WebApi", Version = "v1" });
+
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                c.IncludeXmlComments(Path.Combine(basePath, "WooliesX.contracts.xml"));
+                c.IncludeXmlComments(Path.Combine(basePath, "WooliesX.WebApi.xml"));
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             app.UseMvc();
+
+            app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {

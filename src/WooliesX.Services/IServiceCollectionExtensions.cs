@@ -10,6 +10,7 @@ namespace WooliesX.Services
         {
             services.Add(new ServiceDescriptor(typeof(IProductService), typeof(ProductService), serviceLifetime));
             services.Add(new ServiceDescriptor(typeof(IShopperHistoryService), typeof(ShopperHistoryService), serviceLifetime));
+            services.Add(new ServiceDescriptor(typeof(ITrolleyService), typeof(TrolleyService), serviceLifetime));
             
             return services;
         }

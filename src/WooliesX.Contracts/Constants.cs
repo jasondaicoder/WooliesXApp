@@ -8,7 +8,7 @@ namespace WooliesX.Contracts
 
             public const string Products = "/api/resource/products";
 
-            public const string TrolleyCaculator = "/api/resource/trolleyCalculator";
+            public const string TrolleyCalculator = "/api/resource/trolleyCalculator";
         }
     }
 }

@@ -23,7 +23,7 @@ namespace WooliesX.Services
         {
             using(HttpClient httpClient = HttpClientBuilder.Build(_appSettings))
             {
-                _logger.LogDebug($"Requesting products at {_appSettings.ResourceBaseUrl}/{Constants.Urls.ShopperHistory}");
+                _logger.LogDebug($"Requesting shopper histories at {_appSettings.ResourceBaseUrl}/{Constants.Urls.ShopperHistory}");
 
                 return await httpClient.GetJsonAsync<List<ShopperHistory>>($"{Constants.Urls.ShopperHistory}?token={_appSettings.Token}");
             }

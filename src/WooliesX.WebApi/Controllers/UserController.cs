@@ -14,6 +14,11 @@ namespace WooliesX.WebApi.Controllers
             _appSettings = appSettings;
         }
 
+        /// <summary>
+        /// Return user information
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
         public IActionResult Get()
         {
             return Ok(new {
