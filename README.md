@@ -11,8 +11,8 @@ Contains all the service components such as the commmnication with resource api
 ## WooliesX.WebApi
 Contains all web api controllers
 
-# Demo site
-https://wooliexapp.azurewebsites.net/
+# Demo site url
+https://wooliexapp.azurewebsites.net/api
 
 # Swagger
 https://wooliexapp.azurewebsites.net/swagger/
